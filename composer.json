@@ -1,0 +1,45 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "fdt-studio/fof-upload-onedrive",
+    "description": "FoF/upload Onedrive support",
+    "keywords": [
+        "flarum",
+        "upload",
+        "file"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "fof/upload": "^1.2",
+        "big-dream/cdn-url-auth": "0.0.2",
+        "overtrue/flysystem-cos": "^3.0",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "authors": [
+        {
+            "name": "FDTStudio",
+            "email": "admin@1ch3jp.onmicrosoft.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/FDT-Studio/fof-upload-onedrive/issues",
+        "source": "https://github.com/FDT-Studio/fof-upload-onedrive"
+    },
+    "autoload": {
+        "psr-4": {
+            "FDTStudio\\UploadExtOnedrive\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+        "title": "FoF Upload Onedrive",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-file-upload",
+                "backgroundColor": "#e74c3c",
+                "color": "#fff"
+            }
+        }
+    }
+}

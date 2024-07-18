@@ -1,0 +1,48 @@
+fof-upload:
+  admin:
+    upload_methods:
+      onedrive: Onedrive
+
+fdt-studio-fof-upload-onedrive:
+  forum:
+    pdf:
+      fallbackNotice1: 您的浏览器不支持在线预览PDF文件，请点击以下链接来下载
+      fallbackNotice2: 点击此处下载PDF文件
+  admin:
+    labels:
+      onedriveLabel:
+        title: Onedrive 储存设置
+        region: 区域
+        regionOption:
+          global: 全球
+          cn: 中国(世纪互联)
+          us: 美国
+          de: 德国
+        email: 邮箱
+        clientId: Client Id
+        clientKey: Client Secret
+        tenantId: Tenant Id
+        rootPath: 储存目录
+      onedriveHelp:
+        email: 输入onedrive邮箱
+        region: 仅支持大部分常用区域
+        clientId: 您可以在个人秘钥管理页查看找到您的 ClientId
+        clientKey: 您可以在个人秘钥管理页查看找到您的 ClientSecret
+        tenantId: 您可以在个人秘钥管理页查看找到您的 Tenant
+        rootPath: 储存目录位置：例如 /test (结尾不要加/)
+    template:
+      audio:
+        name: Onedrive MP3 音频模板
+        description: 用于播放 上传到Onedrive中的MP3 音频模板
+      video-preview:
+        name: Onedrive MP4 视频预览模板
+        description: 用于预览 上传到Onedrive中的MP4 视频模板
+      image-preview:
+        name: Onedrive 图片预览模板
+        description: Onedrive 图片预览模板
+      download:
+        name: Onedrive 文件下载模板
+        description: Onedrive 文件下载模板
+      pdf:
+        name: Onedrive PDF 预览模板
+        description: Onedrive PDF 预览模板

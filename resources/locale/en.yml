@@ -1,0 +1,49 @@
+fof-upload:
+  admin:
+    upload_methods:
+      onedrive: Onedrive
+
+fdt-studio-fof-upload-onedrive:
+  forum:
+    pdf:
+      fallbackNotice1: This browser does not support inline PDFs. Please download the PDF to view it
+      fallbackNotice2: Click here to download PDF
+  admin:
+    labels:
+      onedriveLabel:
+        title: Onedrive storage settings
+        region: region
+        regionOption:
+          global: Global
+          cn: China
+          us: United State
+          de: Germany
+        email: Email
+        clientId: Client Id
+        clientKey: Client Secret
+        tenantId: Tenant Id
+        rootPath: Storage Root Path
+      onedriveHelp:
+        email: type onedrive account email
+        region: only supports most commonly used regions
+        clientId: You can find your SecretId on the personal ClientID management page
+        clientKey: You can find your SecretId on the personal ClientSecret management page
+        tenantId: You can find your SecretId on the personal TenantID management page
+        rootPath: Storage File Path,for example /test (Don't add / at the end)
+    template:
+      audio:
+        name: Onedrive MP3 音频模板
+        description: 用于播放 上传到Onedrive中的MP3 音频模板
+      video-preview:
+        name: Onedrive MP4 视频预览模板
+        description: 用于预览 上传到Onedrive中的MP4 视频模板
+      image-preview:
+        name: Onedrive 图片预览模板
+        description: Onedrive 图片预览模板
+      download:
+        name: Onedrive 文件下载模板
+        description: Onedrive 文件下载模板
+      pdf:
+        name: Onedrive PDF 预览模板
+        description: Onedrive PDF 预览模板
+
