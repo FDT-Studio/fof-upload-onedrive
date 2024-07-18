@@ -1,6 +1,6 @@
 # FDTStudio/fof-upload-onedrive
 
-![License](https://img.shields.io/badge/license-MIT-red.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/gbcl/fof-upload-qcloud.svg)](https://packagist.org/packages/gbcl/fof-upload-qcloud) [![Total Downloads](https://img.shields.io/packagist/dt/gbcl/fof-upload-qcloud.svg)](https://packagist.org/packages/gbcl/fof-upload-qcloud)
+![License](https://img.shields.io/badge/license-MIT-red.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/fdt-studio/fof-upload-onedrive.svg)](https://packagist.org/packages/fdt-studio/fof-upload-onedrive) [![Total Downloads](https://img.shields.io/packagist/dt/fdt-studio/fof-upload-onedrive.svg)](https://packagist.org/packages/fdt-studio/fof-upload-onedrive)
 
 A [Flarum](http://flarum.org) extension. An extension for FoF Upload to support Onedrive upload
 
@@ -34,8 +34,7 @@ php flarum cache:clear
 
 ### Links
 
-- [Packagist](https://packagist.org/packages/gbcl/fof-upload-qcloud)
-- [discuss](https://discuss.flarum.org.cn/d/4058)
+- [Packagist](https://packagist.org/packages/fdt-studio/fof-upload-onedrive)
 
 ### Special
 
