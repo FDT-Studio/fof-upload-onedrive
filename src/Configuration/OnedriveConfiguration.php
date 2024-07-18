@@ -20,6 +20,7 @@ class OnedriveConfiguration
     public string $clientKey;
     public string $tenantId;
     public string $rootPath;
+    public string $baseUrl;
     public string $oauthApi;
     public string $commonApi;
     public string $accessToken;
@@ -40,6 +41,7 @@ class OnedriveConfiguration
         $this->clientKey = $settings->get('fdt-studio-fof-upload-onedrive.onedriveConfig.clientKey');
         $this->tenantId = $settings->get('fdt-studio-fof-upload-onedrive.onedriveConfig.tenantId');
         $this->rootPath = $settings->get("fdt-studio-fof-upload-onedrive.onedriveConfig.rootPath");
+        $this->baseUrl = $settings->get("fdt-studio-fof-upload-onedrive.onedriveConfig.baseUrl");
 
         if ($this->region == null || strlen($this->region) == 0) {
             $this->region = 'global';

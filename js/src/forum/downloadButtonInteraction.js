@@ -20,8 +20,6 @@ export default function () {
         let url = app.forum.attribute('apiUrl') + '/fof-upload-onedrive/download';
 
         url += '/' + encodeURIComponent(e.currentTarget.dataset.fofOnedriveUploadDownloadUuid);
-        url += '/' + encodeURIComponent(this.attrs.post.id());
-        url += '/' + encodeURIComponent(app.session.csrfToken);
 
         window.open(url);
       });

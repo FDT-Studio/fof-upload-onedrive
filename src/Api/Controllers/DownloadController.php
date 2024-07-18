@@ -64,26 +64,19 @@ class DownloadController implements RequestHandlerInterface
      */
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $actor = $request->getAttribute('actor');
         $uuid = Arr::get($request->getQueryParams(), 'uuid');
-        $postId = Arr::get($request->getQueryParams(), 'post');
-        $csrf = Arr::get($request->getQueryParams(), 'csrf');
-
-        $post = $this->posts->findOrFail($postId, $actor);
-        $discussion = $post->discussion_id;
-        /** @var Session $session */
-        $session = $request->getAttribute('session');
-        if ($this->settings->get('fof-upload.disableHotlinkProtection') != 1 && $csrf !== $session->token()) {
-            throw new ModelNotFoundException();
-        }
 
         $file = $this->files->findByUuid($uuid);
         if ($file == null) {
             throw new ModelNotFoundException();
         }
+
+        $url = $this->pluginConfig->generateUrl(
+            $this->pluginConfig->rootPath."/".$file->path);
+
         $response = $this->pluginConfig->api->request(
             "GET",
-            $file->url,
+            $url,
             [
                 'headers' => [
                     "Authorization" => "Bearer {$this->pluginConfig->accessToken}"
@@ -98,7 +91,7 @@ class DownloadController implements RequestHandlerInterface
                 $this->pluginConfig->getAccessToken();
                 $response = $this->pluginConfig->api->request(
                     "GET",
-                    $file->url,
+                    $url,
                     [
                         'headers' => [
                             "Authorization" => "Bearer {$this->pluginConfig->accessToken}"

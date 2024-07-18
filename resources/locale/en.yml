@@ -23,6 +23,7 @@ fdt-studio-fof-upload-onedrive:
         clientKey: Client Secret
         tenantId: Tenant Id
         rootPath: Storage Root Path
+        baseUrl: Forum url
       onedriveHelp:
         email: type onedrive account email
         region: only supports most commonly used regions
@@ -30,6 +31,7 @@ fdt-studio-fof-upload-onedrive:
         clientKey: You can find your SecretId on the personal ClientSecret management page
         tenantId: You can find your SecretId on the personal TenantID management page
         rootPath: Storage File Path,for example /test (Don't add / at the end)
+        baseUrl: Forum url, for example http://127.0.0.1 (Don't add / at the end)
     template:
       audio:
         name: Onedrive MP3 音频模板

@@ -38,9 +38,11 @@ class OnedriveVideoFormatter
     {
         return Utils::replaceAttributes($xml, 'UPL-ONEDRIVE-VIDEO', function ($attributes) {
             $file = $this->files->findByUuid($attributes['uuid']);
+            $url = $this->config->generateUrl(
+                $this->config->rootPath."/".$file->path);
             $response = $this->config->api->request(
                 "GET",
-                $file->url,
+                $url,
                 [
                     'headers' => [
                         "Authorization" => "Bearer {$this->config->accessToken}"
@@ -53,7 +55,7 @@ class OnedriveVideoFormatter
                     $this->config->getAccessToken();
                     $response = $this->config->api->request(
                         "GET",
-                        $file->url,
+                        $url,
                         [
                             'headers' => [
                                 "Authorization" => "Bearer {$this->config->accessToken}"

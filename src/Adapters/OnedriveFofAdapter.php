@@ -7,6 +7,7 @@ use FoF\Upload\Contracts\UploadAdapter;
 use FoF\Upload\File;
 use FDTStudio\UploadExtOnedrive\Configuration\OnedriveConfiguration;
 use GuzzleHttp\Psr7\Request;
+use Flarum\Settings\SettingsRepositoryInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class OnedriveFofAdapter implements UploadAdapter
@@ -30,11 +31,14 @@ class OnedriveFofAdapter implements UploadAdapter
     public function upload(File $file, ?UploadedFile $upload, $contents): bool|File
     {
         $this->generateFilename($file);
-        $file->url = $this->pluginConfig->generateUrl(
+        $url = $this->pluginConfig->generateUrl(
             $this->pluginConfig->rootPath."/".$file->path);
+
+        $file->url = $this->pluginConfig->baseUrl."/api/fof-upload-onedrive/download/".$file->uuid;
+
         $response = $this->pluginConfig->api->request(
             "PUT",
-            $file->url . "/content",
+            $url . "/content",
             [
                 'headers' => [
                     "Authorization" => "Bearer {$this->pluginConfig->accessToken}"
@@ -51,7 +55,7 @@ class OnedriveFofAdapter implements UploadAdapter
                 $this->pluginConfig->getAccessToken();
                 $response = $this->pluginConfig->api->request(
                     "PUT",
-                    $file->url . "/content",
+                    $url . "/content",
                     [
                         'headers' => [
                             "Authorization" => "Bearer {$this->pluginConfig->accessToken}"
@@ -90,16 +94,18 @@ class OnedriveFofAdapter implements UploadAdapter
      */
     public function delete(File $file): bool|File
     {
+        $url = $this->pluginConfig->generateUrl(
+            $this->pluginConfig->rootPath."/".$file->path);
         $response = $this->pluginConfig->api->request(
             "DELETE",
-            $file->url,
+            $url,
             [
                 'headers' => [
                     "Authorization" => "Bearer {$this->pluginConfig->accessToken}"
                 ],
             ]);
 
-        if ($response->getStatusCode() != 200) {
+        if ($response->getStatusCode() != 204) {
             $result = json_decode($response->getBody(), true);
             if (!is_array($result)) {
                 return false;
@@ -108,13 +114,13 @@ class OnedriveFofAdapter implements UploadAdapter
                 $this->pluginConfig->getAccessToken();
                 $response = $this->pluginConfig->api->request(
                     "DELETE",
-                    $file->url,
+                    $url,
                     [
                         'headers' => [
                             "Authorization" => "Bearer {$this->pluginConfig->accessToken}"
                         ],
                     ]);
-                if ($response->getStatusCode() != 200) {
+                if ($response->getStatusCode() != 204) {
                     return false;
                 }
             } else {

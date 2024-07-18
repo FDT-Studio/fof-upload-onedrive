@@ -23,6 +23,7 @@ fdt-studio-fof-upload-onedrive:
         clientKey: Client Secret
         tenantId: Tenant Id
         rootPath: 储存目录
+        baseUrl: 论坛地址
       onedriveHelp:
         email: 输入onedrive邮箱
         region: 仅支持大部分常用区域
@@ -30,6 +31,7 @@ fdt-studio-fof-upload-onedrive:
         clientKey: 您可以在个人秘钥管理页查看找到您的 ClientSecret
         tenantId: 您可以在个人秘钥管理页查看找到您的 Tenant
         rootPath: 储存目录位置：例如 /test (结尾不要加/)
+        baseUrl: 论坛地址： 例如 http://127.0.0.1 (结尾不要加/)
     template:
       audio:
         name: Onedrive MP3 音频模板

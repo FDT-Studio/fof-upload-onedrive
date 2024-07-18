@@ -40,10 +40,11 @@ class OnedrivePreviewFormatter
     {
         return Utils::replaceAttributes($xml, 'UPL-ONEDRIVE-PREVIEW', function ($attributes) {
             $file = $this->files->findByUuid($attributes['uuid']);
-
+            $url = $this->config->generateUrl(
+                $this->config->rootPath."/".$file->path);
             $response = $this->config->api->request(
                 "GET",
-                $file->url,
+                $url,
                 [
                     'headers' => [
                         "Authorization" => "Bearer {$this->config->accessToken}"
@@ -56,7 +57,7 @@ class OnedrivePreviewFormatter
                     $this->config->getAccessToken();
                     $response = $this->config->api->request(
                         "GET",
-                        $file->url,
+                        $url,
                         [
                             'headers' => [
                                 "Authorization" => "Bearer {$this->config->accessToken}"

@@ -24,7 +24,7 @@ use FDTStudio\UploadExtOnedrive\Providers\OnedriveProvider;
 
 return [
     (new Extend\Routes('api'))
-        ->get('/fof-upload-onedrive/download/{uuid}/{post}/{csrf}', 'fof-upload-onedrive.download', Api\Controllers\DownloadController::class),
+        ->get('/fof-upload-onedrive/download/{uuid}', 'fof-upload-onedrive.download', Api\Controllers\DownloadController::class),
 
     (new Extend\Event())
         ->listen(Collecting::class, AdapterRegisterListener::class)

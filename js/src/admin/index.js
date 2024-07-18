@@ -71,4 +71,14 @@ app.initializers.add('fdt-studio-fof-upload-onedrive', function (app) {
             },
             530
         )
+
+      .registerSetting(
+        {
+          setting: setting('baseUrl'),
+          label: label('baseUrl'),
+          help: help('baseUrl'),
+          type: 'text',
+        },
+        510
+      )
 });
